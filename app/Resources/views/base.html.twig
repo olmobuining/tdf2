@@ -1,13 +1,70 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- remove the default browser interface is added like app -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- Change Status bar to Black. -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!-- The touch icons -->
+    <link rel="apple-touch-icon" href="/images/touchicons/Icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/touchicons/Icon-72.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/touchicons/Icon@2x.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/touchicons/Icon-72@2x.png" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <meta name="description" content="test" />
+    <title>{% block title %}Welcome!{% endblock %}</title>
+
+
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,300italic,400italic,700,700italic,900" rel="stylesheet" type="text/css">
+    {% block stylesheets %}{% endblock %}
+    <link rel="stylesheet" href="{{ asset('css/simple-line-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/global.css') }}">
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+    <div id="login-bar">
+        <div class="container">
+            <a href="#" onclick="javascript:document.getElementById('login-bar').className += ' open';"><span class="icon-arrow-down" aria-hidden="true" ></span>Login</a> 
+            <form action="#" method="POST" id="loginform">
+                <input type="text" id="login_username" placeholder="Username or E-mail"/>
+                <input type="password" id="login_password" placeholder="Password" />
+                <input type="button" id="submit" class="btn" value="Login" />
+            </form>
+        </div>
+    </div>
+    <div id="head" class="container">
+        <img src="{{ asset('images/logo.png') }}" alt="logo" id="logo" />
+        <nav>
+            <ul>
+                <li class="active"><a href="#home">{{ 'Home'|trans }}</a></li>
+                <li><a href="#forum">{{ 'Forum'|trans }}</a></li>
+                <li><a href="#news">{{ 'News'|trans }}</a></li>
+                <li><a href="#news">{{ 'About'|trans }} TDF</a></li>
+            </ul>
+        </nav>
+    </div>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+    <footer>
+        <div class="container">
+            <ul>
+                <li>The Dutch Fellowship</li>
+                <li>{{ 'Casual Guild'|trans }}</li>
+                <li>{{ 'No obligations'|trans }}</li>
+                <li>{{ 'Mature gaming with enough fun'|trans }}</li>
+                <li>{{ 'Like playing with good friends'|trans }}</li>
+            </ul>
+            <ul>
+                <li>{{ 'What we play'|trans }}</li>
+                <li><a href="#firstlinkitemfooter">{{ 'Guild Wars 2'|trans }}<span class="icon-arrow-right"></span></a></li>
+                <li><a href="#firstlinkitemfooter">{{ 'Left 4 Dead 2'|trans }}<span class="icon-arrow-right"></span></a></li>
+                <li><a href="#firstlinkitemfooter">{{ 'Portal 2'|trans }}<span class="icon-arrow-right"></span></a></li>
+                <li>{{ 'and more....'|trans }}</li>
+            </ul>
+        </div>
+    </footer>
+    {% block javascripts %}{% endblock %}
+</body>
 </html>

@@ -4,30 +4,29 @@ imports:
 
 framework:
     #esi:             ~
-    #translator:      { fallback: "%locale%" }
-    secret:          "%secret%"
+    translator:      { fallback: en }
+    secret:          %secret%
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
-        strict_requirements: ~
+        strict_requirements: %kernel.debug%
     form:            ~
     csrf_protection: ~
     validation:      { enable_annotations: true }
     templating:
         engines: ['twig']
+        assets_version: %version_control%
+        assets_version_format: /resource/%%2$s/%%1$s
         #assets_version: SomeVersionScheme
     default_locale:  "%locale%"
-    trusted_hosts:   ~
     trusted_proxies: ~
-    session:
-        # handler_id set to null will use default session handler from php.ini
-        handler_id:  ~
-    fragments:       ~
-    http_method_override: true
+    session:         ~
 
 # Twig Configuration
 twig:
-    debug:            "%kernel.debug%"
-    strict_variables: "%kernel.debug%"
+    debug:            %kernel.debug%
+    strict_variables: %kernel.debug%
+    globals:
+        version_control: %version_control%
 
 # Assetic Configuration
 assetic:

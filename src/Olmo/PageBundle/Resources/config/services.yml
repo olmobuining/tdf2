@@ -1,0 +1,7 @@
+parameters:
+#    olmo_page.example.class: Olmo\PageBundle\Example
+
+services:
+#    olmo_page.example:
+#        class: %olmo_page.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

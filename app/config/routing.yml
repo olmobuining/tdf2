@@ -1,0 +1,4 @@
+olmo_page:
+    resource: "@OlmoPageBundle/Resources/config/routing.yml"
+    prefix:   /
+
